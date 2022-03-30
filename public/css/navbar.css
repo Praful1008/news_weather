@@ -1,0 +1,233 @@
+html{
+    min-height: 100%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+ul{
+    padding: 0px;
+    position: relative;
+    font-size: 0px;
+    display: inline-block;
+
+}
+h2{
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+}
+input.txt{
+    margin: 0px 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 2px solid rgb(26 188 156);
+    font-family: sans-serif;
+    font-size: medium;
+    outline-color: rgb(11, 248, 169);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-attachment: fixed;
+    /* rgb(44, 62, 80) */
+    background-image: linear-gradient(to top left, rgb(49 65 109), rgb(41 149 124));
+    background-repeat: no-repeat;
+    background-color: rgb(54, 116, 116);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+nav{
+    text-align: right;
+    margin: 40px 5%;
+    padding: 4px;
+    border-radius: 8px;
+    z-index: 5;
+    position: sticky;
+    top: 0px;
+    height: 50px;
+    background-image: linear-gradient(to right, #29947c, rgb(48 66 109));
+    background-color: rgb(0 77 68);
+    box-shadow: 5px 5px 20px rgb(48 67 109);
+}
+.brand{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 25px;
+    width: auto;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.507);
+    color: white;
+    text-decoration: none;
+    word-spacing: 5px;
+}
+li a{
+    font-size: 15px;
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100px;
+    line-height: 50px;
+    letter-spacing: 1px;
+}
+
+nav #animation{
+    position: absolute;
+    bottom: 0px;
+    height: 100%;
+    width: 100px;
+    background-color: rgba(26, 188, 156, 0.7);
+    border-radius: 8px;
+    z-index: 0;
+    transition: all 0.4s ease;
+}
+li:nth-child(1):hover~#animation{
+    left: 0px;
+}
+li:nth-child(2):hover~#animation{
+    left: 100px;
+}
+li:nth-child(3):hover~#animation{
+    left: 200px;
+}
+li:nth-child(4):hover~#animation{
+    left: 300px;
+}
+
+.start-home{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.start-Weather{
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+}
+.start-News{
+    position: absolute;
+    bottom: 0px;
+    left: 200px;
+}
+.start-About{
+    position: absolute;
+    bottom: 0px;
+    left: 300px;
+}
+.toggle-btn{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    flex-direction: column;
+    width: 30px;
+    height: 21px;
+    justify-content: space-between;
+}
+#toggle-checkbox:checked~ul{
+    display: inline-block;
+}
+#toggle-checkbox:checked~.txt{
+    display: inline-block;
+}
+#toggle-checkbox{
+    display: none;
+}
+.bar{
+    height: 3px;
+    width: 100%;
+    border-radius: 1px;
+    background-color: white;
+}
+
+@media screen and (max-width : 800px){
+    body{
+        min-height: 140vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+   nav{
+       width: 100%;
+       padding: 0;
+       display: flex;
+       flex-wrap: wrap;
+       text-align: left;
+       height: auto;
+       background-image: linear-gradient(to bottom right, #29947c, rgb(49 66 109));
+       background-color: aquamarine;
+       margin: 0px;
+       position: absolute;
+       top: 0px;
+       border-radius: 0;
+       box-shadow: 5px 5px 20px rgb(48 67 109);
+   }
+   .brand{
+       display: block;
+       position: static;
+       font-size: 25px;
+       margin-bottom: 4px;
+       padding: 10px;
+   }
+   ul{
+       margin: 4px;
+       position: static;
+       text-align: center;
+       display: none;
+       width: 100%;
+   }
+   li{
+       display: block;
+   }
+   li a{
+       width: 100%;
+   }
+   input.txt{
+       position: static;
+       bottom: 0px;
+       width: 40%;
+       margin: auto;
+       display: none;
+       margin-bottom: 6px;
+   }
+   .toggle-btn{
+       display: flex;
+   }
+   #animation{
+       display: none;
+   }
+   /* .container{
+       width: 90%;
+       height: 110vh;
+       position: relative;
+       top: 100px;
+       flex-direction: column-reverse;
+       flex-flow: column-reverse;
+       justify-content: space-around;
+   }
+   .container img{
+       width: 96%;
+       height: 80vh;
+       margin: 0px;
+       padding: 4px;
+   }
+   .container button{
+        margin-top: 10px;
+        width: 90%;
+        letter-spacing: normal;
+   }
+   .container p{
+       width: 90%;
+       text-align: center;
+   } */
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Praful1008/Drum-Kit/main/images/ds1favico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    <title>News Weather | Home</title>
+
+    <style>
+        .container {
+            position: relative;
+            box-sizing: border-box;
+            width: 70%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 10px 10px 40px rgb(48 67 109);
+            background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.75));
+            margin: auto;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .weatherContainer,
+        .newsContainer {
+            width: 50%;
+            text-align: center;
+        }
+
+        .weatherContainer img,
+        .newsContainer img {
+            margin: 10px 0px 4px 0px;
+            height: 400px;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .newsContainer button,
+        .weatherContainer button {
+            background-color: #29947c;
+            border-radius: 8px;
+            width: 60%;
+            line-height: 24px;
+            font-size: large;
+            color: rgb(48 66 109);
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: large;
+            color: #30426d;
+        }
+
+        .newsContainer button:hover,
+        .weatherContainer button:hover {
+            background-color: rgb(42, 163, 123);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width : 800px) {
+            .container {
+                width: 90%;
+                position: relative;
+                top: 100px;
+                justify-content: space-around;
+            }
+
+            .weatherContainer,
+            .newsContainer {
+                width: 100%;
+                min-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="container">
+
+        <div class="newsContainer">
+            <img src="images/breaking-news.gif" alt="news gif">
+            <p>
+                Get <strong style="color: #29947c;"> Latest </strong> News
+            </p>
+            <a href="/news"> <button> Latest News </button> </a>
+        </div>
+
+        <div class="weatherContainer">
+            <img src="images/weather.gif" alt="weather gif">
+            <p>
+                It's a <strong style="color: #29947c;"> BEAUTIFUL DAY! </strong>
+            </p>
+            <a href="/weather"> <button> Check Weather Now </button> </a>
+        </div>
+    </div>
+    <script src="navbar.js"></script>
+</body>
+
+</html>

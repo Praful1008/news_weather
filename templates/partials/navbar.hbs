@@ -1,0 +1,51 @@
+<nav>
+        <a href="/" class="brand">News | Weather</a> 
+        <input type="checkbox" id="toggle-checkbox">
+        <label for="toggle-checkbox" class="toggle-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+        <ul>
+            
+            <li><a href="/">Home</a></li>
+            <li><a href="/weather">Weather</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/about">About</a></li>
+            <div id="animation" class="start-home"></div>
+        </ul>
+    </nav>
+    
+    
+    <script>
+        let x ='{{nav}}';
+        switch (x) {
+        case 'About':
+            document.getElementById('animation').className='start-About';
+            break;
+        case 'Weather':
+            document.getElementById('animation').className='start-Weather';
+            break;
+        case 'News':
+            document.getElementById('animation').className='start-News';
+            break;    
+        default:
+            document.getElementById('animation').className='start-home';
+            break;
+        }
+        console.log(x);
+        document.querySelectorAll('li').forEach(e => {
+         if(e.firstChild.innerText===x)
+         {
+             e.style.background='rgb(26, 188, 156,0.32)';
+             e.style.borderRadius='8px';
+             e.firstChild.style.color='wheat';
+         }
+         else
+         {
+             e.style.background='none';
+             e.style.borderRadius='0px';
+             e.firstChild.style.color='white';
+         } 
+    })
+    </script>

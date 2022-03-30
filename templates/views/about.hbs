@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Praful1008/Drum-Kit/main/images/ds1favico.ico" type="image/x-icon">
+    <title>news weather | About</title>
+    <style>
+        .container {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.342), rgba(255, 255, 255, 0.178));
+            display: block;
+            width: 80%;
+            text-align: center;
+            margin: auto;
+            border-radius: 8px;
+            min-height: 50vh;
+            box-shadow: 2px 2px 10px rgb(72, 73, 133);
+            padding-top: 20px;
+            position: relative;
+        }
+        .container p{
+            color: rgb(10, 51, 38);
+            letter-spacing: 1px;
+            word-spacing: 4px;
+            font-size: 20px;
+        }
+
+        @media screen and (max-width : 800px) {
+            .container {
+                position: relative;
+                top: 100px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="container">
+        <p>
+            Fell Free to contact Us anytime <span style="font-weight: bold;"> (24*7) </span>  
+            <br><br><br><br>
+            Mail us at abc@xyz.com <br>
+             you can also contact us on <code> xx123xxxx456 </code>
+        </p>
+            <br><br>
+        <p>
+            <strong>Note : </strong> The Data displayed in the Weather section may not be 100% accurate 
+        </p>
+
+    </div>
+</body>
+<script src="navbar.js"></script>
+
+</html>

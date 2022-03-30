@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Praful1008/Drum-Kit/main/images/ds1favico.ico" type="image/x-icon">
+    <title>News Weather | weather</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    .contain-all {
+        text-align: center;
+    }
+
+    .searchBar {
+        margin-top: auto;
+        display: block;
+        margin-bottom: 20px;
+        text-align: center;
+        padding: 0px 8px;
+    }
+
+    .searchBar input {
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        height: 28px;
+        background-color: rgb(49 66 109);
+        outline: 2px solid #29947c;
+        font-family: 'Ubuntu', sans-serif;
+        letter-spacing: 2px;
+        color: rgb(22, 219, 154);
+        box-shadow: 2px 2px 40px #30436d;
+        font-size: 18px;
+    }
+
+    .searchBar button {
+        color: rgb(36, 182, 150);
+        background-color: rgb(41, 71, 110);
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 10px 10px 40px rgb(48 67 109);
+        cursor: pointer;
+        font-family: 'Ubuntu', sans-serif;
+        padding: 4px 6px;
+        font-weight: bolder;
+        font-size: large;
+    }
+
+    .searchBar button:hover {
+        color: rgb(49 65 109);
+        background-color: #29947c;
+
+    }
+
+    .searchBar input {}
+
+    ::placeholder {
+        color: #29947c;
+    }
+
+    #errormsg {
+        display: none;
+        padding: 4px;
+        background-color: rgba(196, 147, 147, 0.671);
+        color: rgb(133, 4, 4);
+        width: auto;
+        border: 2px solid tomato;
+        margin: 4px;
+    }
+
+    .container {
+        height: auto;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8));
+        border-radius: 8px;
+        margin: auto;
+        text-align: center;
+        max-width: 350px;
+        height: auto;
+        padding: 4px;
+        box-shadow: 2px 2px 40px #30436d;
+    }
+
+    .weather-icon {
+        margin-top: 4px;
+        margin: auto;
+        display: inline;
+        width: 120px;
+        height: 160px;
+        min-width: 160px;
+    }
+
+    .container .description {
+        display: block;
+        margin: 5px 0px;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: #225c7e;
+    }
+
+    .cityName {
+        display: block;
+        font-size: 40px;
+        font-family: 'Ubuntu', sans-serif;
+        color: rgb(43, 122, 109);
+        margin: 10px 0px;
+        padding: 2px;
+    }
+
+    .temperature {
+        display: block;
+        font-size: 40px;
+        font-family: 'Ubuntu', sans-serif;
+        margin: 5px 0px;
+        color: rgb(39, 68, 110);
+        text-shadow: 2px 2px 40px #27816e;
+        font-weight: 600;
+    }
+
+    .humidity {
+        display: block;
+        font-family: 'Ubuntu', sans-serif;
+        color: rgb(39, 68, 110);
+        font-size: 20px;
+        margin: 5px 0px;
+    }
+
+    .location-logo {
+        min-width: none;
+        display: inline;
+        width: 30px;
+        height: 30px;
+    }
+
+    .date_time {
+        display: block;
+        font-family: 'Ubuntu', sans-serif;
+        color: rgb(31, 118, 168);
+        margin: 10px 0px;
+        font-weight: bolder;
+        line-height: 24px;
+    }
+
+    .handleBtn {
+        text-align: right;
+        display: block;
+        width: 90%;
+    }
+
+    #closeError:hover{
+        cursor: pointer;
+    }
+
+    .handleBtn select {
+        background-color: rgb(48 66 109);
+        border-radius: 4px;
+        color: rgb(26 244 196);
+        font-size: larger;
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: 2.5px;
+    }
+
+    #lat,
+    #long {
+        width: 60px;
+    }
+
+    .lat_long {
+        display: none;
+        color: #1a2746;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    @media screen and (max-width : 800px) {
+        .contain-all {
+            position: relative;
+            top: 100px;
+        }
+    }
+
+    @media screen and (max-width : 450px) {
+        .container {
+            width: calc(100% - 40px);
+        }
+
+        .searchBar input {
+            width: calc(100% - 100px)
+        }
+    }
+</style>
+
+<body>
+    {{>navbar}}
+    <div class="contain-all">
+        <form id="weatherForm" action="" method="post">
+            <div class="handleBtn">
+                <select name="searchBy" id="searchBy" onchange='changeBox(this)'>
+                    <option value="cityName">City Name</option>
+                    <option value="lat_long">Lat | Long</option>
+                </select>
+            </div>
+            <div class="searchBar">
+
+                <input id="cityName" name="cityName" type="text" placeholder="Enter City Name"autocomplete="off">
+                <div class="lat_long">
+                    <label for="lat">Lat : </label>
+                    <input id="lat" type="text" name="lat" autocomplete="off">
+                    <label for="long">Long : </label>
+                    <input id="long" type="text" name="long" autocomplete="off">
+                </div>
+                <button id="search-btn" type="submit" disabled>Search</button>
+            </div>
+        </form>
+
+        {{!-- display error msg when city is not found --}}
+        <div id="errormsg"> No such Match found --- change cityName to Lat | Long --- or wrong lat | long 
+            <img id="closeError" src="https://img.icons8.com/emoji/16/000000/cross-mark-emoji.png" onclick="removeError()"/>
+        </div>
+        
+        <div class="container">
+            <img class="weather-icon" src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt="images to be display">
+            <span class="temperature">{{temp}} &deg; C</span>
+            <span class="description">{{description}}</span>
+            <span class="humidity">Humidity : {{humidity}}</span>
+            <span class="date_time">
+            </span>
+            <span class="cityName">
+                <img class="location-logo" src="./images/location.png" alt="">
+                <strong id="city">{{city}} , {{country}}</strong>
+            </span>
+        </div>
+    </div>
+    <script>
+        if({{error}})
+        {
+            document.getElementsByClassName('container')[0].style.visibility = 'hidden';
+            document.getElementById('errormsg').style.display = "inline-block";
+        }
+    </script>
+    <script src="script/main.js"></script>
+</body>
